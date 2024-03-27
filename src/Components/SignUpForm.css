@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* background-color: gray; */
+}
+.container{
+    margin-top: 150px;
+    height: 63vh;
+    width: 40vw;
+    border-radius: 10px;
+    background-color: rgb(70, 62, 68);
+}
+.success{
+    font-size: 33px;
+    text-align: center;
+    font-weight: 500;
+}
+.head-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 18px;
+}
+.input-1{
+    margin-top: 23px;
+}
+.head-form input{
+    width: 32vw;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 16px;   
+}
+.paragraph{
+    color: red;
+    text-align: left;
+    margin-left: 16px;
+}
+.pass-container{
+    display: flex;
+    gap: 2px;
+
+}
+.pass-container:hover{
+    cursor: pointer;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.coloured{
+    padding: 10px 15px;
+    margin: 0px 8px;
+    border-radius: 8px;
+    background-color: rgb(110, 7, 158);
+    font-size: 15px;
+    font-weight: bold;
+    transition: transform 0.5s ease-in;
+    border: 1px solid black;
+}
+.uncoloured{
+    padding: 10px 15px;
+    margin: 0px 8px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: rgb(114, 110, 113);
+    transition: transform 0.5s ease-in;
+    border: 1px solid black;
+}
+.btn button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+@media screen and (max-width: 1076px){
+    .container{
+        height: 50vh;
+    }
+}
+@media screen and (max-width: 650px){
+    .container{
+        width: 80vw;
+        height: 48vh;
+        margin: 0px 46px;
+    }
+    .head-form input{
+        width:65vw;
+    }
+    
+}
