@@ -3,9 +3,16 @@
     margin: 0;
     /* background-color: gray; */
 }
-.container{
+.container-1{
     margin-top: 150px;
     height: 69vh;
+    width: 40vw;
+    border-radius: 10px;
+    background-color: rgb(70, 62, 68);
+}
+.container-2{
+    margin-top: 150px;
+    height: 54vh;
     width: 40vw;
     border-radius: 10px;
     background-color: rgb(70, 62, 68);

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import './SignUpForm.css';
 
-export const SignUpForm = () => {
+export const SignInForm = () => {
 
 
-    const [action, setAction] = useState("sign-up");
+    const [action, setAction] = useState("sign-in");
     const initials = { UserName: '', email: '', password: '' };
     const [values, setValues] = useState(initials);
     const [formErrors, setFormErrors] = useState({});
@@ -32,9 +32,9 @@ export const SignUpForm = () => {
     const validate = (errValues) => {
         const errors = {};
         const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
-        // if (!errValues.UserName) {
-        //     errors.UserName = 'Please enter Username';
-        // }
+        if (!errValues.UserName) {
+            errors.UserName = 'Please enter Username';
+        }
         if (!errValues.email) {
             errors.email = "please enter your email id";
         }
@@ -60,17 +60,16 @@ export const SignUpForm = () => {
             x.type = "password";
         }
     }
-    const handleSignUp = () =>{
-        if(action === "sign-up"){
-            setFormErrors(validate(values));
-        }
-    }
+
     return (
         <div className='parent'>
-            <div className='container-2'>
+            {Object.keys(formErrors).length === 0 && isSubmit && action === "sign-in" ? (<div className='success'>Signed In Successfully</div>) : (<div></div>)}
+            <div className='container-1'>
                 <form className='head-form' /*onSubmit={handleSubmit}*/>
+                    <div><input className='input-1' type='text' placeholder='Username' name='UserName' value={values.UserName} onChange={handleChange}></input>
+                        <p className='paragraph'>{formErrors.UserName}</p></div>
 
-                    <input className='input-1' type='email' placeholder='Email' name='email' value={values.email} onChange={handleChange}></input>
+                    <input type='email' placeholder='Email' name='email' value={values.email} onChange={handleChange}></input>
                     <p className='paragraph'>{formErrors.email}</p>
 
                     <div className='pass-container'>
@@ -83,8 +82,8 @@ export const SignUpForm = () => {
                     <p className='paragraph'>{formErrors.password}</p>
 
                     <div className='btn'>
-                        <Link to="/" className={action === "sign-in" ? "coloured" : "uncoloured"} onClick={() => { setAction("sign-in"); handleSubmit(); }}>Sign-in</Link>
-                        <Link to="/signUp" className={action === "sign-up" ? "coloured" : "uncoloured"} onClick={() => { handleSignUp(); setAction("sign-up"); handleSubmit();}}>Sign-up</Link>
+                    <Link to="/" className={action === "sign-in" ? "coloured" : "uncoloured"} onClick={() => { setAction("sign-in"); handleSubmit(); }}>Sign-in</Link>
+                        <Link to="/signUp" className={action === "sign-up" ? "coloured" : "uncoloured"} onClick={() => { setAction("sign-up"); handleSubmit();}}>Sign-up</Link>
                     </div>
                 </form>
             </div>
